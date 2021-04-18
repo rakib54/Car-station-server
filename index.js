@@ -98,6 +98,15 @@ client.connect(err => {
       })
 
   })
+  
+
+  app.get('/selectService/:id',(req,res)=>{
+    const id = objectID(req.params.id)
+    AllService.find({_id: id})
+    .then(result =>{
+      res.send(result.value)
+    })
+  })
 
 });
 
